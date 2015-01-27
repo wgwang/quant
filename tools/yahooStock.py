@@ -48,6 +48,7 @@ def print_stock(sdata, color=True):
         price_now = float(sdata['LastTradePriceOnly'])
         price_last = float(sdata['PreviousClose'])
     except (ValueError, TypeError):
+        print(sdata)
         val_str = sdata['symbol'] + ' error'
         if color:
             print('\033[%sm %10s \033[0m' %(colors['grey'], val_str))
@@ -72,11 +73,15 @@ def print_stock(sdata, color=True):
         print(val_str)
 
 def print_stocks(stock_data, color=True):
-    stock_data = stock_data['query']['results']
-    if stock_data is None:
-        return
-    for sdata in stock_data['quote']:
-        print_stock(sdata, color)
+    stock_data = stock_data['query']
+    count = stock_data['count']
+    if count == 0:
+        sys.exit('Not any stock')
+    if count == 1:
+        print_stock(stock_data['results']['quote'], color)
+    else:
+        for sdata in stock_data['results']['quote']:
+            print_stock(sdata, color)
     print('')
 
 if __name__ == '__main__':
