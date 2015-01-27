@@ -69,20 +69,6 @@ def print_stock(stock_data, color=True):
             print(val_str)
     print('')
 
-
-"""
-    print (realdata[0], ": ", \
-           "\n\tNow:\t", realdata[3], \
-           "\n\tPrev Close:\t", realdata[1], \
-           "\tOpen:\t", realdata[2], \
-           "\tHigh:\t", realdata[4], \
-           "\tLow:\t", realdata[5], \
-           "\n\tBid 1:\t", realdata[11], "\t", realdata[10], \
-           "\tAsk 1:\t", realdata[21], "\t", realdata[20])
-    print ("\n=============================================================\n")
-"""
-
-
 if __name__ == "__main__":
 
     while True:
